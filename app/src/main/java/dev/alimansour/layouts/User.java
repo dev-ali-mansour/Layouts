@@ -10,13 +10,11 @@ package dev.alimansour.layouts;
 public class User {
     private String fullName;
     private String userName;
-    private String email;
     private int imageResource;
 
-    public User(String fullName, String userName, String email, int imageResource) {
+    public User(String fullName, String userName, int imageResource) {
         this.fullName = fullName;
         this.userName = userName;
-        this.email = email;
         this.imageResource = imageResource;
     }
 
@@ -34,14 +32,6 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getImageResource() {

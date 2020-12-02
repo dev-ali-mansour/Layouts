@@ -35,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
         });
         listButton.setOnClickListener(v -> {
             intent = new Intent(this, ListActivity.class);
+            intent.putExtra("isGrid", false);
             startActivity(intent);
         });
         gridButton.setOnClickListener(v -> {
-            intent = new Intent(this, GridActivity.class);
+            intent = new Intent(this, ListActivity.class);
+            intent.putExtra("isGrid", true);
             startActivity(intent);
         });
 

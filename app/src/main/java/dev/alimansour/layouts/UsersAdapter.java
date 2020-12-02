@@ -1,12 +1,12 @@
 package dev.alimansour.layouts;
 
-import android.content.Context;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -51,14 +51,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     }
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
-        private TextView fullNameTextView, userNameTextView, emailTextView;
+        private TextView fullNameTextView, userNameTextView;
         private ImageView imageView;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             fullNameTextView = itemView.findViewById(R.id.fullNameTextView);
             userNameTextView = itemView.findViewById(R.id.userNameTextView);
-            emailTextView = itemView.findViewById(R.id.emailTextView);
             imageView = itemView.findViewById(R.id.profileImage);
         }
 
@@ -66,8 +65,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         public void bind(User user) {
             fullNameTextView.setText(user.getFullName());
             userNameTextView.setText(user.getUserName());
-            emailTextView.setText(user.getEmail());
             imageView.setImageDrawable(itemView.getContext().getDrawable(user.getImageResource()));
+            itemView.setOnClickListener(v -> {
+                Toast.makeText(itemView.getContext(), "Full Name: " + user.getFullName(), Toast.LENGTH_LONG).show();
+            });
+            imageView.setOnClickListener(v -> {
+                Toast.makeText(itemView.getContext(), "User: " + user.getFullName() + " \'s photo has been selected", Toast.LENGTH_LONG).show();
+            });
         }
     }
 }
